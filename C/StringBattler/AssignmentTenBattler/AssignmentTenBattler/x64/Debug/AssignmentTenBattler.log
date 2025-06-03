@@ -1,0 +1,4 @@
+﻿  課題No,10_文字列バトラー_江藤大晴.cpp
+C:\Users\ok230112\Desktop\AssignmentTenBattler\AssignmentTenBattler\課題No,10_文字列バトラー_江藤大晴.cpp(79,12): warning C4244: '引数': 'time_t' から 'unsigned int' への変換です。データが失われる可能性があります。
+C:\Users\ok230112\Desktop\AssignmentTenBattler\AssignmentTenBattler\課題No,10_文字列バトラー_江藤大晴.cpp(200,18): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  AssignmentTenBattler.vcxproj -> C:\Users\ok230112\Desktop\AssignmentTenBattler\x64\Debug\AssignmentTenBattler.exe

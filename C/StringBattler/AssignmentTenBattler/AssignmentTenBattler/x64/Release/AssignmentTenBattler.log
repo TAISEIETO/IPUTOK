@@ -1,0 +1,9 @@
+﻿  課題No,10_文字列バトラー_江藤大晴.cpp
+C:\Users\ok230112\Desktop\1年前期\ソフトウェア開発基礎\課題\課題No,10\AssignmentTenBattler\AssignmentTenBattler\課題No,10_文字列バトラー_江藤大晴.cpp(86,12): warning C4244: '引数': 'time_t' から 'unsigned int' への変換です。データが失われる可能性があります。
+C:\Users\ok230112\Desktop\1年前期\ソフトウェア開発基礎\課題\課題No,10\AssignmentTenBattler\AssignmentTenBattler\課題No,10_文字列バトラー_江藤大晴.cpp(224,18): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  コード生成しています。
+  0 of 24 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  AssignmentTenBattler.vcxproj -> C:\Users\ok230112\Desktop\1年前期\ソフトウェア開発基礎\課題\課題No,10\AssignmentTenBattler\x64\Release\AssignmentTenBattler.exe
