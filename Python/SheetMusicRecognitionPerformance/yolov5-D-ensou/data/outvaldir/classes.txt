@@ -1,0 +1,12 @@
+do
+re
+mi
+fa
+so
+ra
+si
+do-t
+stop
+one
+two
+three

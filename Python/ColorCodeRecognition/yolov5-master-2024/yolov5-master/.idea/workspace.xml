@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f2e7e720-ee52-4345-94de-940d6fb29705" name="変更" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2hDCAYGrxBycjOOBKK38pE9WkcO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.detect.executor&quot;: &quot;Run&quot;,
+    &quot;Python.make_dataset.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="デフォルトタスク">
+      <changelist id="f2e7e720-ee52-4345-94de-940d6fb29705" name="変更" comment="" />
+      <created>1717119117788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717119117788</updated>
+      <workItem from="1717119118988" duration="912000" />
+      <workItem from="1718079943013" duration="2889000" />
+      <workItem from="1718182155136" duration="4000" />
+      <workItem from="1718325506010" duration="9557000" />
+      <workItem from="1718378557618" duration="8118000" />
+      <workItem from="1718386976758" duration="415000" />
+      <workItem from="1718683245134" duration="5409000" />
+      <workItem from="1718699168218" duration="6166000" />
+      <workItem from="1718719658110" duration="7855000" />
+      <workItem from="1718776140585" duration="7759000" />
+      <workItem from="1718863476574" duration="5644000" />
+      <workItem from="1718894182903" duration="3786000" />
+      <workItem from="1718929984430" duration="21886000" />
+      <workItem from="1718980015078" duration="10315000" />
+      <workItem from="1719028794231" duration="15600000" />
+      <workItem from="1719053590317" duration="10115000" />
+      <workItem from="1719157012556" duration="10051000" />
+      <workItem from="1719193543682" duration="28078000" />
+      <workItem from="1719239466497" duration="9784000" />
+      <workItem from="1719287963084" duration="2994000" />
+      <workItem from="1719556454282" duration="843000" />
+      <workItem from="1719806484083" duration="4392000" />
+      <workItem from="1719837030416" duration="974000" />
+      <workItem from="1719895570020" duration="2226000" />
+      <workItem from="1720142663294" duration="3986000" />
+      <workItem from="1720500154563" duration="106000" />
+      <workItem from="1720502153532" duration="354000" />
+      <workItem from="1720502864949" duration="918000" />
+      <workItem from="1720748895981" duration="1800000" />
+      <workItem from="1720880392140" duration="782000" />
+      <workItem from="1720930824565" duration="6053000" />
+      <workItem from="1720952011987" duration="8000" />
+      <workItem from="1721301237070" duration="27000" />
+      <workItem from="1735026677923" duration="7000" />
+      <workItem from="1735027135263" duration="2681000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/detect_py$detect.coverage" NAME="detect のカバレッジ結果" MODIFIED="1735029620417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/detect_py$make_dataset.coverage" NAME="make_dataset のカバレッジ結果" MODIFIED="1719896046160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
