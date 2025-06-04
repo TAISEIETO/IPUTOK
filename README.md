@@ -22,10 +22,15 @@ C++フォルダの説明
 
 ## 🛠️ ソースファイル構成
 C++/ClassGame/Kadai09/
+
 ├── main.cpp // メイン処理
+
 ├── Game.cpp // Game クラスの実装
+
 ├── Enemy.cpp // Enemy クラスの実装
+
 ├── Game.h // Game クラスのヘッダー
+
 ├── Enemy.h // Enemy クラスのヘッダー
 
 ## ▶️ 実行方法
