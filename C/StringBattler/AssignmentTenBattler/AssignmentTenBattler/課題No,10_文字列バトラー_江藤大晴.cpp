@@ -1,37 +1,37 @@
 /* ------------------------------------------------------------------------- */
-/* 課題No,10_文字列バトラー_江藤大晴.cpp									 */
+/* �ۑ�No,10_������o�g���[_�]���吰.cpp									 */
 /* AssignmentTenBattler														 */
-/* 入力文字列によってステータスが決まるターン制バトル						 */
+/* ���͕�����ɂ���ăX�e�[�^�X�����܂�^�[�����o�g��						 */
 /*																			 */
 /* ------------------------------------------------------------------------- */
-/*	番号	更新履歴								日付		氏名		 */
+/*	�ԍ�	�X�V����								���t		����		 */
 /* ------------------------------------------------------------------------- */
-/*	000000	新規作成								2023/08/10	江藤  大晴	 */
+/*	000000	�V�K�쐬								2023/08/10	�]��  �吰	 */
 /* ------------------------------------------------------------------------- */
-#define _CRT_SECURE_NO_WARNINGS					/* scanf対応				 */
+#define _CRT_SECURE_NO_WARNINGS					/* scanf�Ή�				 */
 
 /* ------------------------------------------------------------------------- */
-/* includeファイル															 */
+/* include�t�@�C��															 */
 /* ------------------------------------------------------------------------- */
-#include<stdio.h>								/* 標準入出力制御			 */
-#include<time.h>								/* 時間制御					 */
-#include<stdlib.h>								/* 基本ライブラリ			 */
-#include <string.h>								/* 文字列制御				 */
+#include<stdio.h>								/* �W�����o�͐���			 */
+#include<time.h>								/* ���Ԑ���					 */
+#include<stdlib.h>								/* ��{���C�u����			 */
+#include <string.h>								/* �����񐧌�				 */
 
 /* ------------------------------------------------------------------------- */
-/* 構造体定義																 */
+/* �\���̒�`																 */
 /* ------------------------------------------------------------------------- */
 struct PLAYER {
-	int HP;										/* 体力						 */
-	int ATK;									/* 攻撃力					 */
-	int DEF;									/* 運						 */
-	int LUCK;									/* 防御力					 */
-	char NAME[43];								/* プレイヤー名				 */
-	char WEAPON[41];							/* 武器						 */
+	int HP;										/* �̗�						 */
+	int ATK;									/* �U����					 */
+	int DEF;									/* �^						 */
+	int LUCK;									/* �h���					 */
+	char NAME[43];								/* �v���C���[��				 */
+	char WEAPON[41];							/* ����						 */
 };
 
 /* ------------------------------------------------------------------------- */
-/* プロトタイプ宣言															 */
+/* �v���g�^�C�v�錾															 */
 /* ------------------------------------------------------------------------- */
 int Status(struct PLAYER* fInfo, int fCount);
 void SPrint(struct PLAYER* fInfo, int fIndex, int fMaxHP);
@@ -51,186 +51,186 @@ void cArrayReset(char* ptr, int fMax);
 void Next();
 
 /* ------------------------------------------------------------------------- */
-/* 関数名	: main															 */
-/* 機能名	: ターン制バトル												 */
-/* 機能概要 : 入力文字列によってステータスが決まるターン制バトル			 */
-/* 引数		: void	: f無し	:												 */
-/* 戻り値	: int	: OSへ返す値(今は0固定)									 */
-/* 作成日	: 2023/08/10		江藤  大晴		新規作成					 */
+/* �֐���	: main															 */
+/* �@�\��	: �^�[�����o�g��												 */
+/* �@�\�T�v : ���͕�����ɂ���ăX�e�[�^�X�����܂�^�[�����o�g��			 */
+/* ����		: void	: f����	:												 */
+/* �߂�l	: int	: OS�֕Ԃ��l(����0�Œ�)									 */
+/* �쐬��	: 2023/08/10		�]��  �吰		�V�K�쐬					 */
 /* ------------------------------------------------------------------------- */
 int main(void)
 {
-	/* 変数宣言 ------------------------------------------------------------ */
-	struct PLAYER Info[2] = {					/* 構造体配列				 */
-	{/* PLAYER配列0番目 ---------------------------------------------------- */
+	/* �ϐ��錾 ------------------------------------------------------------ */
+	struct PLAYER Info[2] = {					/* �\���̔z��				 */
+	{/* PLAYER�z��0�Ԗ� ---------------------------------------------------- */
 		0,										/* HP						 */
 		0,										/* ATK						 */
 		0,										/* DEF						 */
 		0										/* LUCK						 */
 	},
-	{/* PLAYER配列1番目 ---------------------------------------------------- */
+	{/* PLAYER�z��1�Ԗ� ---------------------------------------------------- */
 		0,										/* HP						 */
 		0,										/* ATK						 */
 		0,										/* DEF						 */
 		0										/* LUCK						 */
 	}
 	};
-	int iMaxHP[2]{ 0,0 };						/* 最大HP記録配列			 */
-	int iDamage[2]{ 0,0 };						/* 与ダメージ計算配列		 */
-	int iCritSw[2]{ 0,0 };						/* 会心の一撃制御配列		 */
-	int iDeadSw = 0;							/* 戦闘不能制御(2P)			 */
-	int iCount = 0;								/* ターン数カウンタ			 */
-	int iPColor = 0;							/* プレイヤー表示色制御		 */
-	int iBox[31][31];							/* データ2次元配列(31*31)	 */
-	int* ptr = 0;								/* ポインタ					 */
-	srand(time(NULL));							/* 乱数初期化				 */
+	int iMaxHP[2]{ 0,0 };						/* �ő�HP�L�^�z��			 */
+	int iDamage[2]{ 0,0 };						/* �^�_���[�W�v�Z�z��		 */
+	int iCritSw[2]{ 0,0 };						/* ��S�̈ꌂ����z��		 */
+	int iDeadSw = 0;							/* �퓬�s�\����(2P)			 */
+	int iCount = 0;								/* �^�[�����J�E���^			 */
+	int iPColor = 0;							/* �v���C���[�\���F����		 */
+	int iBox[31][31];							/* �f�[�^2�����z��(31*31)	 */
+	int* ptr = 0;								/* �|�C���^					 */
+	srand(time(NULL));							/* ����������				 */
 
-	/* 処理開始------------------------------------------------------------- */
+	/* �����J�n------------------------------------------------------------- */
 
-	/* 構造体配列の数ループ ------------------------------------------------ */
+	/* �\���̔z��̐����[�v ------------------------------------------------ */
 	for (int iIndex = 0; iIndex < 2; iIndex++) {
-		cArrayReset(&Info[iIndex].NAME[0], 43);/* 名前配列初期化 */
-		cArrayReset(&Info[iIndex].WEAPON[0], 41);/* 武器配列初期化 */
+		cArrayReset(&Info[iIndex].NAME[0], 43);/* ���O�z�񏉊��� */
+		cArrayReset(&Info[iIndex].WEAPON[0], 41);/* ����z�񏉊��� */
 	}
 	
-	printf("対応文字コード:SHIFT_JIS(半角1文字1Byte、全角1文字2Byte)\n");
+	printf("�Ή������R�[�h:SHIFT_JIS(���p1����1Byte�A�S�p1����2Byte)\n");
 
-	/* 構造体配列の数ループ ------------------------------------------------ */
+	/* �\���̔z��̐����[�v ------------------------------------------------ */
 	for (int iIndex = 0; iIndex < 2; iIndex++) {
-		iPColor = PColorPrint(iIndex);/* プレイヤー表示色付け */
-		printf("\nプレイヤー名を入力してください。(10Byte以上、40byte以内)\n[ENTER]で入力を確定する。\n\n\x1b[%dm%dP:\x1b[39m",iPColor, iIndex + 1);
-		iMaxHP[iIndex] = Status(&Info[iIndex], iCount);/* ステータス振り分け */
+		iPColor = PColorPrint(iIndex);/* �v���C���[�\���F�t�� */
+		printf("\n�v���C���[������͂��Ă��������B(10Byte�ȏ�A40byte�ȓ�)\n[ENTER]�œ��͂��m�肷��B\n\n\x1b[%dm%dP:\x1b[39m",iPColor, iIndex + 1);
+		iMaxHP[iIndex] = Status(&Info[iIndex], iCount);/* �X�e�[�^�X�U�蕪�� */
 	}
 	system("cls");
-	printf("ステータス情報\n\n\n");
+	printf("�X�e�[�^�X���\n\n\n");
 
-	/* 構造体配列の数ループ ------------------------------------------------ */
+	/* �\���̔z��̐����[�v ------------------------------------------------ */
 	for (int iIndex = 0; iIndex < 2; iIndex++) {
-		SPrint(&Info[iIndex], iIndex, iMaxHP[iIndex]);/* ステータス情報表示 */
+		SPrint(&Info[iIndex], iIndex, iMaxHP[iIndex]);/* �X�e�[�^�X���\�� */
 	}
 	Next();
 	system("cls");
-	iArrayReset(&iBox[0][0], 31 * 31);/* int型配列初期化 */
+	iArrayReset(&iBox[0][0], 31 * 31);/* int�^�z�񏉊��� */
 
-	/* X軸壁の数2回ループ -------------------------------------------------- */
+	/* X���ǂ̐�2�񃋁[�v -------------------------------------------------- */
 	for (int iIndex = 0; iIndex < 31; iIndex += 30) {
-		YWall(&iBox[0][iIndex], 31);/* Y軸壁生成 */
+		YWall(&iBox[0][iIndex], 31);/* Y���ǐ��� */
 	}
 
-	/* Y軸壁の数2回ループ -------------------------------------------------- */
+	/* Y���ǂ̐�2�񃋁[�v -------------------------------------------------- */
 	for (int iIndex = 0; iIndex < 31; iIndex += 30) {
-		XWall(&iBox[iIndex][0], 31);/* X軸壁生成 */
+		XWall(&iBox[iIndex][0], 31);/* X���ǐ��� */
 	}
-	ptr = START(&iBox[0][0]);/* 開始点決定 */
-	Movement(ptr, &iBox[0][0]);/* 迷路生成 */
-	iArrayPrint(&iBox[0][0], 31 * 31);/* int型配列表示 */
+	ptr = START(&iBox[0][0]);/* �J�n�_���� */
+	Movement(ptr, &iBox[0][0]);/* ���H���� */
+	iArrayPrint(&iBox[0][0], 31 * 31);/* int�^�z��\�� */
 	Next();
 	system("cls");
-	printf("\x1b[93m戦闘開始\x1b[39m\n\n\n");
+	printf("\x1b[93m�퓬�J�n\x1b[39m\n\n\n");
 	Next();
 	system("cls");
 
-	/* 1P、2PどちらかのHPが0以下になるまでループ --------------------------- */
+	/* 1P�A2P�ǂ��炩��HP��0�ȉ��ɂȂ�܂Ń��[�v --------------------------- */
 	while ((Info[0].HP > 0) && (Info[1].HP > 0)) {
 		iCount++;
 		printf("TURN\x1b[31m%d\x1b[39m\n", iCount);
-		iArrayReset(&iCritSw[0], 2);/* 会心の一撃制御配列初期化 */
+		iArrayReset(&iCritSw[0], 2);/* ��S�̈ꌂ����z�񏉊��� */
 
-		/* 構造体配列の数ループ -------------------------------------------- */
+		/* �\���̔z��̐����[�v -------------------------------------------- */
 		for (int iIndex1 = 0, iIndex2 = 1; iIndex1 < 2; iIndex1++, iIndex2--) {
-			iDamage[iIndex1] = Damage(&Info[iIndex1], &Info[iIndex2], &iCritSw[iIndex1]);/* 与ダメージ算出 */
+			iDamage[iIndex1] = Damage(&Info[iIndex1], &Info[iIndex2], &iCritSw[iIndex1]);/* �^�_���[�W�Z�o */
 
-			/* 後攻(2P)のHPが0以下ならば戦闘不能状態にする */
+			/* ��U(2P)��HP��0�ȉ��Ȃ�ΐ퓬�s�\��Ԃɂ��� */
 			if (Info[1].HP <= 0) {
 				iDeadSw++;
 				break;
 			}
 		}
 
-		/* 構造体配列の数ループ -------------------------------------------- */
+		/* �\���̔z��̐����[�v -------------------------------------------- */
 		for (int iIndex1 = 0, iIndex2 = 1; iIndex1 < 2; iIndex1++, iIndex2--) {
 			if (iDeadSw == 0) {
-				CPrint(iCritSw[iIndex2]);/* 会心の一撃表示 */
-				DPrint(&Info[iIndex1], &Info[iIndex2], iDamage[iIndex2], iIndex1, iIndex2);/* 与ダメージ表示 */
+				CPrint(iCritSw[iIndex2]);/* ��S�̈ꌂ�\�� */
+				DPrint(&Info[iIndex1], &Info[iIndex2], iDamage[iIndex2], iIndex1, iIndex2);/* �^�_���[�W�\�� */
 			}
 			else {
 				iDeadSw--;
 			}
-			SPrint(&Info[iIndex1], iIndex1, iMaxHP[iIndex1]);/* ステータス情報表示 */
+			SPrint(&Info[iIndex1], iIndex1, iMaxHP[iIndex1]);/* �X�e�[�^�X���\�� */
 		}
 		Next();
 		system("cls");
 	}
 	
-	RPrint(&Info[0], &Info[1]);/* 戦闘結果表示 */
+	RPrint(&Info[0], &Info[1]);/* �퓬���ʕ\�� */
 
-	/* 処理終了 */
+	/* �����I�� */
 	rewind(stdin);
 	getchar();
 	return 0;
 }
 
-/* ステータス振り分け関数 */
+/* �X�e�[�^�X�U�蕪���֐� */
 int Status(struct PLAYER* fInfo, int fCount) {
-	int fMaxHP = 0;								/* 最大HP記録(戻り値)		 */
-	int fWGacha = 0;							/* 武器ガチャ				 */
-	int flength = 0;							/* 文字数					 */
+	int fMaxHP = 0;								/* �ő�HP�L�^(�߂�l)		 */
+	int fWGacha = 0;							/* ����K�`��				 */
+	int flength = 0;							/* ������					 */
 	char fConfirm = 0;
 
-	/* 無限ループ ---------------------------------------------------------- */
+	/* �������[�v ---------------------------------------------------------- */
 	while(1) {
 		rewind(stdin);
 		fgets(fInfo[0].NAME, sizeof(fInfo[42].NAME), stdin);
 
-		/* 10Byte目が0(null)または未入力ならば再入力を促す(SHIFT_JIS) */
+		/* 10Byte�ڂ�0(null)�܂��͖����͂Ȃ�΍ē��͂𑣂�(SHIFT_JIS) */
 		if ((fInfo->NAME[10] == 0) && (fInfo->NAME[0] != '\n')) {
-			printf("\x1b[31m(！)\x1b[39mプレイヤー名は\x1b[31m10Byte以上\x1b[39m入力してください。(半角1文字1Byte、全角1文字2Byte)\n\n再入力:");
+			printf("\x1b[31m(�I)\x1b[39m�v���C���[����\x1b[31m10Byte�ȏ�\x1b[39m���͂��Ă��������B(���p1����1Byte�A�S�p1����2Byte)\n\n�ē���:");
 		}
 		else if (fInfo->NAME[0] == '\n') {
-			printf("\x1b[31m(！)未入力\x1b[39mです。\n\n再入力:");
+			printf("\x1b[31m(�I)������\x1b[39m�ł��B\n\n�ē���:");
 		}
 
-		/* 41Byte目がにデータが入っているなら再入力を促す(SHIFT_JIS) */
+		/* 41Byte�ڂ��Ƀf�[�^�������Ă���Ȃ�ē��͂𑣂�(SHIFT_JIS) */
 		if (fInfo->NAME[41] != 0) {
-			printf("\x1b[31m(！)\x1b[39mプレイヤー名は\x1b[31m40Byte以内で\x1b[39m入力してください。(半角1文字1Byte、全角1文字2Byte)\n\n再入力:");
-			cArrayReset(&fInfo->NAME[0], 43);/* 名前配列初期化 */
+			printf("\x1b[31m(�I)\x1b[39m�v���C���[����\x1b[31m40Byte�ȓ���\x1b[39m���͂��Ă��������B(���p1����1Byte�A�S�p1����2Byte)\n\n�ē���:");
+			cArrayReset(&fInfo->NAME[0], 43);/* ���O�z�񏉊��� */
 		}
 
-		/* 上記処理の入力条件を満たした場合、確認画面を表示 */
+		/* ��L�����̓��͏����𖞂������ꍇ�A�m�F��ʂ�\�� */
 		if ((fInfo->NAME[10] != 0) && (fInfo->NAME[41] == 0)) {
-			printf("\n以降変更ができません。本当に入力を確定しますか?\n[Y]はい [N]いいえ\n\n");
+			printf("\n�ȍ~�ύX���ł��܂���B�{���ɓ��͂��m�肵�܂���?\n[Y]�͂� [N]������\n\n");
 
-			/* YかNが入力されるまでループ ---------------------------------- */
+			/* Y��N�����͂����܂Ń��[�v ---------------------------------- */
 			do {
 				scanf("%c", &fConfirm);
 				rewind(stdin);
 
-				/* 入力がYかNじゃなければ再入力を促す */
+				/* ���͂�Y��N����Ȃ���΍ē��͂𑣂� */
 				if ((fConfirm != 'Y') && (fConfirm != 'N')) {
-					printf("\x1b[31m(！)\x1b[39m\x1b[31m[Y]\x1b[39mはい \x1b[31m[N]\x1b[39mいいえで入力してください。\n\n");
+					printf("\x1b[31m(�I)\x1b[39m\x1b[31m[Y]\x1b[39m�͂� \x1b[31m[N]\x1b[39m�������œ��͂��Ă��������B\n\n");
 				}
 			} while ((fConfirm != 'Y') && (fConfirm != 'N'));
 
-			/* 入力がYならば無限ループを抜け、Nならば再入力を促す */
+			/* ���͂�Y�Ȃ�Ζ������[�v�𔲂��AN�Ȃ�΍ē��͂𑣂� */
 			if (fConfirm == 'Y') {
 				break;
 			}
 			else if (fConfirm == 'N') {
-				printf("\n再入力:");
-				cArrayReset(&fInfo->NAME[0], 43);/* 名前配列初期化 */
+				printf("\n�ē���:");
+				cArrayReset(&fInfo->NAME[0], 43);/* ���O�z�񏉊��� */
 			}
 		}
 	}
 	flength = strlen(fInfo->NAME);
 
-	/* 入力文字の終端-1番目の配列が改行ならば0にする */
+	/* ���͕����̏I�[-1�Ԗڂ̔z�񂪉��s�Ȃ��0�ɂ��� */
 	if (fInfo->NAME[flength - 1] == '\n') {
 		fInfo->NAME[flength - 1] = 0;
 	}
 
 	fInfo->HP = (unsigned char)fInfo->NAME[2] * (rand() % 4 + 1) % 999 + 1;
 
-	/* TURN0(ステータス振り分け時)のHPを最大HPとして保存 */
+	/* TURN0(�X�e�[�^�X�U�蕪����)��HP���ő�HP�Ƃ��ĕۑ� */
 	if (fCount == 0) {
 		fMaxHP = fInfo->HP;
 	}
@@ -239,40 +239,40 @@ int Status(struct PLAYER* fInfo, int fCount) {
 	fInfo->LUCK = (unsigned char)fInfo->NAME[8] * (rand() % 16 + 5) % 999 + 1;
 	fWGacha = rand() % 8;
 
-	/* 武器ガチャの値に応じた武器名をメンバ武器配列に格納 */
+	/* ����K�`���̒l�ɉ��������햼�������o����z��Ɋi�[ */
 	if (fWGacha == 0) {
-		strcpy(fInfo->WEAPON, "ゴルフボール");
+		strcpy(fInfo->WEAPON, "�S���t�{�[��");
 	}
 	if (fWGacha == 1) {
-		strcpy(fInfo->WEAPON, "アックス");
+		strcpy(fInfo->WEAPON, "�V�i");
 	}
 	if (fWGacha == 2) {
-		strcpy(fInfo->WEAPON, "ドライヤー");
+		strcpy(fInfo->WEAPON, "���K�l");
 	}
 	if (fWGacha == 3) {
-		strcpy(fInfo->WEAPON, "新品");
+		strcpy(fInfo->WEAPON, "�A�b�N�X");
 	}
 	if (fWGacha == 4) {
-		strcpy(fInfo->WEAPON, "中古品");
+		strcpy(fInfo->WEAPON, "���Õi");
 	}
 	if (fWGacha == 5) {
-		strcpy(fInfo->WEAPON, "ローソク");
+		strcpy(fInfo->WEAPON, "���[�\�N");
 	}
 	if (fWGacha == 6) {
-		strcpy(fInfo->WEAPON, "カメラ");
+		strcpy(fInfo->WEAPON, "�J����");
 	}
 	if (fWGacha == 7) {
-		strcpy(fInfo->WEAPON, "高級タイヤ");
+		strcpy(fInfo->WEAPON, "�����^�C��");
 	}
 	return fMaxHP;
 }
 
-/* ステータス情報表示関数 */
+/* �X�e�[�^�X���\���֐� */
 void SPrint(struct PLAYER* fInfo, int fIndex, int fMaxHP) {
-	int fPColor = 0;							/* プレイヤー表示色制御		 */
-	int fHPColor = 0;							/* HP表示色制御				 */
-	fPColor = PColorPrint(fIndex);/* プレイヤー表示色付け */
-	fHPColor = HPColorPrint(fInfo, fMaxHP);/* HP表示色付け */
+	int fPColor = 0;							/* �v���C���[�\���F����		 */
+	int fHPColor = 0;							/* HP�\���F����				 */
+	fPColor = PColorPrint(fIndex);/* �v���C���[�\���F�t�� */
+	fHPColor = HPColorPrint(fInfo, fMaxHP);/* HP�\���F�t�� */
 	printf("\x1b[%dm%dP:%s\x1b[39m\n", fPColor, fIndex + 1, &fInfo->NAME[0]);
 	printf("HP:\x1b[%dm%d/%d\x1b[39m\n", fHPColor, fInfo->HP, fMaxHP);
 	printf("ATK:%d\n", fInfo->ATK);
@@ -281,14 +281,14 @@ void SPrint(struct PLAYER* fInfo, int fIndex, int fMaxHP) {
 	printf("WEAPON:%s\n\n\n", &fInfo->WEAPON[0]);
 }
 
-/* 与ダメージ算出関数 */
+/* �^�_���[�W�Z�o�֐� */
 int Damage(struct PLAYER* fInfo1, struct PLAYER* fInfo2, int* ptr) {
-	int fDamage = 0;							/* 与ダメージ計算(戻り値)	 */
-	int fCritRate = 0;							/* 会心率計算				 */
-	int fRate = 0;								/* 確率計算					 */
+	int fDamage = 0;							/* �^�_���[�W�v�Z(�߂�l)	 */
+	int fCritRate = 0;							/* ��S���v�Z				 */
+	int fRate = 0;								/* �m���v�Z					 */
 	fDamage = fInfo1->ATK - rand() % fInfo2->DEF + 1;
 
-	/* ダメージが0以下の場合、0~5の値をランダムで出す */
+	/* �_���[�W��0�ȉ��̏ꍇ�A0~5�̒l�������_���ŏo�� */
 	if (fDamage <= 0) {
 		fDamage = rand() % 6;
 	}
@@ -296,13 +296,13 @@ int Damage(struct PLAYER* fInfo1, struct PLAYER* fInfo2, int* ptr) {
 	fCritRate = (fCritRate + 1) * 2;
 	fRate = 100 / fCritRate;
 
-	/* 余りがあれば確率計算結果に+1*/
+	/* �]�肪����Ίm���v�Z���ʂ�+1*/
 	if (100 % fRate >= 1) {
 		fRate++;
 	}
 	fRate = (rand() % fRate + 1) * fCritRate;
 
-	/* 確率計算結果が100以上の場合、会心の一撃発動 */
+	/* �m���v�Z���ʂ�100�ȏ�̏ꍇ�A��S�̈ꌂ���� */
 	if (fRate >= 100) {
 		fDamage = fDamage * (rand() % 24 + 12) / 10;
 		*ptr = 1;
@@ -311,113 +311,113 @@ int Damage(struct PLAYER* fInfo1, struct PLAYER* fInfo2, int* ptr) {
 	return fDamage;
 }
 
-/* 会心の一撃表示関数 */
+/* ��S�̈ꌂ�\���֐� */
 void CPrint(int fCritSw) {
 
-	/* 会心の一撃制御が1のとき表示処理に入る */
+	/* ��S�̈ꌂ���䂪1�̂Ƃ��\�������ɓ��� */
 	if (fCritSw == 1) {
-		printf("\x1b[31m会心の一撃！\x1b[39m");
+		printf("\x1b[31m��S�̈ꌂ�I\x1b[39m");
 	}
 }
 
-/* 与ダメージ表示関数 */
+/* �^�_���[�W�\���֐� */
 void DPrint(struct PLAYER* fInfo1, struct PLAYER* fInfo2, int fDamage, int fIndex1, int fIndex2) {
-	int fiColor1 = 0;							/* 表示色制御				 */
+	int fiColor1 = 0;							/* �\���F����				 */
 	int fiColor2 = 0;
 	fiColor1 = PColorPrint(fIndex1);
 	fiColor2 = PColorPrint(fIndex2);
-	printf("\x1b[%dm%s\x1b[39mは", fiColor1, &fInfo1->NAME);
-	printf("\x1b[%dm%s\x1b[39mから", fiColor2, &fInfo2->NAME);
-	printf("\x1b[31m%dダメージ\x1b[39m受けた！\n\n", fDamage);
+	printf("\x1b[%dm%s\x1b[39m��", fiColor1, &fInfo1->NAME);
+	printf("\x1b[%dm%s\x1b[39m����", fiColor2, &fInfo2->NAME);
+	printf("\x1b[31m%d�_���[�W\x1b[39m�󂯂��I\n\n", fDamage);
 }
 
-/* 戦闘結果表示関数 */
+/* �퓬���ʕ\���֐� */
 void RPrint(struct PLAYER* fInfo1, struct PLAYER* fInfo2) {
 
-	/* 1P,2PどちらかのHPが0以下になったとき勝敗を表示する */
+	/* 1P,2P�ǂ��炩��HP��0�ȉ��ɂȂ����Ƃ����s��\������ */
 	if (fInfo1->HP <= 0) {
-		printf("\x1b[91m%s\x1b[39mは倒れた！\n\n\n", &fInfo1->NAME);
+		printf("\x1b[91m%s\x1b[39m�͓|�ꂽ�I\n\n\n", &fInfo1->NAME);
 		Next();
 		system("cls");
-		printf("\x1b[93m戦闘終了\x1b[39m\n\n\n");
+		printf("\x1b[93m�퓬�I��\x1b[39m\n\n\n");
 		Next();
 		system("cls");
-		printf("\x1b[94m%s\x1b[39mの勝利！", &fInfo2->NAME);
+		printf("\x1b[94m%s\x1b[39m�̏����I", &fInfo2->NAME);
 	}
 	else if (fInfo2->HP <= 0) {
-		printf("\x1b[94m%s\x1b[39mは倒れた！\n\n\n", &fInfo2->NAME);
+		printf("\x1b[94m%s\x1b[39m�͓|�ꂽ�I\n\n\n", &fInfo2->NAME);
 		Next();
 		system("cls");
-		printf("\x1b[93m戦闘終了\x1b[39m\n\n\n");
+		printf("\x1b[93m�퓬�I��\x1b[39m\n\n\n");
 		Next();
 		system("cls");
-		printf("\x1b[91m%s\x1b[39mの勝利！", &fInfo1->NAME);
+		printf("\x1b[91m%s\x1b[39m�̏����I", &fInfo1->NAME);
 	}
 }
 
-/* プレイヤー表示色付け関数 */
+/* �v���C���[�\���F�t���֐� */
 int PColorPrint(int fIndex) {
-	int fPColor = 0;							/* プレイヤー表示色制御		 */
+	int fPColor = 0;							/* �v���C���[�\���F����		 */
 
-	/* 配列0番目なら赤色(明) */
+	/* �z��0�ԖڂȂ�ԐF(��) */
 	if (fIndex == 0) {
 		fPColor = 91;
 	}
 
-	/* 配列1番目なら青色(明) */
+	/* �z��1�ԖڂȂ�F(��) */
 	if (fIndex == 1) {
 		fPColor = 94;
 	}
 	return fPColor;
 }
 
-/* HP表示色付け関数 */
+/* HP�\���F�t���֐� */
 int HPColorPrint(struct PLAYER* fInfo, int fMaxHP) {
-	int fHPColor = 0;							/* HP表示色制御		 */
+	int fHPColor = 0;							/* HP�\���F����		 */
 
-	/* 現HPが最大HPの50%より上なら緑色(暗) */
+	/* ��HP���ő�HP��50%����Ȃ�ΐF(��) */
 	if (fInfo->HP > fMaxHP / 2) {
 		fHPColor = 32;
 	}
 
-	/* 現HPが最大HPの50%以下かつ20%より上なら黄色(暗) */
+	/* ��HP���ő�HP��50%�ȉ�����20%����Ȃ物�F(��) */
 	if ((fInfo->HP <= fMaxHP / 2) && (fInfo->HP > fMaxHP / 5)) {
 		fHPColor = 33;
 	}
 
-	/* 現HPが最大HPの20%以下なら赤色(暗) */
+	/* ��HP���ő�HP��20%�ȉ��Ȃ�ԐF(��) */
 	if (fInfo->HP <= fMaxHP / 5) {
 		fHPColor = 31;
 	}
 	return fHPColor;
 }
 
-/* Y軸壁生成関数 */
+/* Y���ǐ����֐� */
 void YWall(int* ptr, int fMax) {
 
-	/* Y軸の数ループ ------------------------------------------------------- */
+	/* Y���̐����[�v ------------------------------------------------------- */
 	for (int fIndex = 0; fIndex < fMax; fIndex++) {
 		*ptr = 2;
 		ptr += 31;
 	}
 }
 
-/* X軸壁生成関数 */
+/* X���ǐ����֐� */
 void XWall(int* ptr, int fMax) {
 
-	/* X軸の数ループ ------------------------------------------------------- */
+	/* X���̐����[�v ------------------------------------------------------- */
 	for (int fIndex = 0; fIndex < fMax; fIndex++) {
 		*ptr = 2;
 		ptr++;
 	}
 }
 
-/* 開始点生成関数 */
+/* �J�n�_�����֐� */
 int* START(int* ptr) {
-	int fIndex1 = 0;							/* 添字1(y軸)				 */
-	int fIndex2 = 0;							/* 添字2(x軸)				 */
+	int fIndex1 = 0;							/* �Y��1(y��)				 */
+	int fIndex2 = 0;							/* �Y��2(x��)				 */
 
-	/* 開始点が偶数マスになるまでループ ------------------------------------ */
+	/* �J�n�_�������}�X�ɂȂ�܂Ń��[�v ------------------------------------ */
 	do {
 		fIndex1 = rand() % 29 + 1;
 		fIndex2 = rand() % 29 + 1;
@@ -427,33 +427,33 @@ int* START(int* ptr) {
 	return ptr;
 }
 
-/* 迷路生成関数 */
+/* ���H�����֐� */
 void Movement(int* ptr1, int* ptr3) {
-	int* ptr2 = 0;								/* ポインタコピー			 */
-	int fIndex1 = 0;							/* 添字1(y軸)				 */
-	int fIndex2 = 0;							/* 添字2(x軸)				 */
-	int fUDLR = 0;								/* 上下左右移動制御			 */
-	int fCouseSW = 0;							/* 経路切り替え				 */
-	int fCount = 0;								/* 無限ループ回数カウンタ	 */
+	int* ptr2 = 0;								/* �|�C���^�R�s�[			 */
+	int fIndex1 = 0;							/* �Y��1(y��)				 */
+	int fIndex2 = 0;							/* �Y��2(x��)				 */
+	int fUDLR = 0;								/* �㉺���E�ړ�����			 */
+	int fCouseSW = 0;							/* �o�H�؂�ւ�				 */
+	int fCount = 0;								/* �������[�v�񐔃J�E���^	 */
 
-	/* 無限ループ ---------------------------------------------------------- */
+	/* �������[�v ---------------------------------------------------------- */
 	while (1) {
 		ptr2 = ptr1;
 		fUDLR = rand() % 4;
 
-		/* UDLRの値によって上下左右移動を制御 */
+		/* UDLR�̒l�ɂ���ď㉺���E�ړ��𐧌� */
 		if (fUDLR == 0) {
 			ptr1 -= 62;
 			ptr2 -= 31;
 
-			/* 2マス先が1または1マス先が2なら移動せず、0なら移動する */
+			/* 2�}�X�悪1�܂���1�}�X�悪2�Ȃ�ړ������A0�Ȃ�ړ����� */
 			if ((*ptr1 == 1) || (*ptr2 == 2)) {
 				ptr1 += 62;
 				fCouseSW++;
 			}
 			else if (*ptr1 == 0) {
 
-				/* 2回ループし、2マス進む ---------------------------------- */
+				/* 2�񃋁[�v���A2�}�X�i�� ---------------------------------- */
 				for (int iCount = 0; iCount < 2; iCount++) {
 					*ptr1 = 1;
 					ptr1 += 31;
@@ -466,14 +466,14 @@ void Movement(int* ptr1, int* ptr3) {
 			ptr1 += 62;
 			ptr2 += 31;
 
-			/* 2マス先が1または1マス先が2なら移動せず、0なら移動する */
+			/* 2�}�X�悪1�܂���1�}�X�悪2�Ȃ�ړ������A0�Ȃ�ړ����� */
 			if ((*ptr1 == 1) || (*ptr2 == 2)) {
 				ptr1 -= 62;
 				fCouseSW++;
 			}
 			else if (*ptr1 == 0) {
 
-				/* 2回ループし、2マス進む ---------------------------------- */
+				/* 2�񃋁[�v���A2�}�X�i�� ---------------------------------- */
 				for (int iCount = 0; iCount < 2; iCount++) {
 					*ptr1 = 1;
 					ptr1 -= 31;
@@ -486,14 +486,14 @@ void Movement(int* ptr1, int* ptr3) {
 			ptr1 -= 2;
 			ptr2 -= 1;
 
-			/* 2マス先が1または1マス先が2なら移動せず、0なら移動する */
+			/* 2�}�X�悪1�܂���1�}�X�悪2�Ȃ�ړ������A0�Ȃ�ړ����� */
 			if ((*ptr1 == 1) || (*ptr2 == 2)) {
 				ptr1 += 2;
 				fCouseSW++;
 			}
 			else if (*ptr1 == 0) {
 
-				/* 2回ループし(2マス進む) ---------------------------------- */
+				/* 2�񃋁[�v��(2�}�X�i��) ---------------------------------- */
 				for (int iCount = 0; iCount < 2; iCount++) {
 					*ptr1 = 1;
 					ptr1 += 1;
@@ -506,14 +506,14 @@ void Movement(int* ptr1, int* ptr3) {
 			ptr1 += 2;
 			ptr2 += 1;
 
-			/* 2マス先が1または1マス先が2なら移動せず、0なら移動する */
+			/* 2�}�X�悪1�܂���1�}�X�悪2�Ȃ�ړ������A0�Ȃ�ړ����� */
 			if ((*ptr1 == 1) || (*ptr2 == 2)) {
 				ptr1 -= 2;
 				fCouseSW++;
 			}
 			else if (*ptr1 == 0) {
 
-				/* 2回ループし、2マス進む ---------------------------------- */
+				/* 2�񃋁[�v���A2�}�X�i�� ---------------------------------- */
 				for (int iCount = 0; iCount < 2; iCount++) {
 					*ptr1 = 1;
 					ptr1 -= 1;
@@ -523,14 +523,14 @@ void Movement(int* ptr1, int* ptr3) {
 			}
 		}
 
-		/* 経路切り替えが4になったら別ルートを探す */
+		/* �o�H�؂�ւ���4�ɂȂ�����ʃ��[�g��T�� */
 		if (fCouseSW == 4) {
 
-			/* ポインタの中身が1じゃない間ループ --------------------------- */
+			/* �|�C���^�̒��g��1����Ȃ��ԃ��[�v --------------------------- */
 			do {
 				ptr1 = ptr3;
 
-				/* 別ルートの開始点が偶数マスになるまでループ--------------  */
+				/* �ʃ��[�g�̊J�n�_�������}�X�ɂȂ�܂Ń��[�v--------------  */
 				do {
 					fIndex1 = rand() % 29 + 1;
 					fIndex2 = rand() % 29 + 1;
@@ -541,60 +541,60 @@ void Movement(int* ptr1, int* ptr3) {
 		}
 		fCount++;
 
-		/* さすがにもう迷路出来とるやろ思う回数になったら無限ループを抜ける */
+		/* �������ɂ������H�o���Ƃ���v���񐔂ɂȂ����疳�����[�v�𔲂��� */
 		if (fCount > 100000) {
 			break;
 		}
 	}
 }
 
-/* int型配列表示関数 */
+/* int�^�z��\���֐� */
 void iArrayPrint(int* ptr, int fMax) {
 	for (int fIndex1 = 0, fIndex2 = 0; fIndex1 < fMax; fIndex1++, fIndex2++) {
 
-		/* 31回ループ1が終了するごとに改行 */
+		/* 31�񃋁[�v1���I�����邲�Ƃɉ��s */
 		if (fIndex2 == 31) {
 			printf("\n");
 			fIndex2 = 0;
 		}
 
-		/* ポインタの中身が0または2ならば■を出力し、1ならば□を出力する */
+		/* �|�C���^�̒��g��0�܂���2�Ȃ�΁����o�͂��A1�Ȃ�΁����o�͂��� */
 		if ((*ptr == 0) || (*ptr == 2)) {
-			printf("■");
+			printf("��");
 		}
 		else if (*ptr == 1) {
-			printf("□");
+			printf("��");
 		}
 		ptr++;
 	}
 }
 
-/* int型配列初期化関数 */
+/* int�^�z�񏉊����֐� */
 void iArrayReset(int* ptr, int fMax) {
 
-	/* 配列の数ループ ------------------------------------------------------ */
+	/* �z��̐����[�v ------------------------------------------------------ */
 	for (int fIndex = 0; fIndex < fMax; fIndex++) {
 		*ptr = 0;
 		ptr++;
 	}
 }
 
-/* char型配列初期化関数 */
+/* char�^�z�񏉊����֐� */
 void cArrayReset(char* ptr, int fMax) {
 
-	/* 配列の数ループ ------------------------------------------------------ */
+	/* �z��̐����[�v ------------------------------------------------------ */
 	for (int fIndex = 0; fIndex < fMax; fIndex++) {
 		*ptr = 0;
 		ptr++;
 	}
 }
 
-/* 次の画面表示関数 */
+/* ���̉�ʕ\���֐� */
 void Next() {
-	char fInput = 0;							/* 入力						 */
-	printf("[ENTER]で次の画面に進む。");
+	char fInput = 0;							/* ����						 */
+	printf("[ENTER]�Ŏ��̉�ʂɐi�ށB");
 
-	/* 改行を入力するまでループ -------------------------------------------- */
+	/* ���s����͂���܂Ń��[�v -------------------------------------------- */
 	while (fInput != '\n') {
 		rewind(stdin);
 		scanf("%c", &fInput);
