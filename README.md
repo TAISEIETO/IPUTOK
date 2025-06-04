@@ -75,6 +75,7 @@ Cフォルダの説明
 
 ## 🛠️ ソースファイル構成
 C/StringBattler/AssignmentTenBattler/AssignmentTenBattler/
+
 ├── 課題No,10_文字列バトラー_江藤大晴.cpp // メイン処理
   
 ## ▶️ 実行方法
@@ -82,6 +83,7 @@ VisualStudioまたはVisualStudioCodeでmain.cppを実行します。
 
 
 Pythonフォルダの説明1
+
 # IPUTOK/Python/ColorCodeRecognition - 抵抗のカラーコード認識、抵抗値の自動計算プログラム（Python）
 
 ## 📖 概要
@@ -106,14 +108,23 @@ Pythonフォルダの説明1
 
 ## 🛠️ ソースファイル構成
 /Python/ColorCodeRecognition/yolov5-master-2024/yolov5-master/
+
 ├── detect.py # 検出処理のメインスクリプト
+
 ├── train.py # 学習用スクリプト（必要に応じて）
+
 ├── make_dataset.py       # 学習用データセット生成スクリプト
+
 ├── models/ # モデル定義
+
 ├── data/ # データセットと構成ファイル
+
 ├── runs/ # 検出結果の保存先
+
 ├── weights/ # 事前学習済みまたは自作モデルの格納先
+
 ├── requirements.txt # 依存パッケージ
+
 └── README.md # YOLOv5のREADME.md
 
 ## ▶️ 実行方法
@@ -147,14 +158,23 @@ Pythonフォルダの説明2
 
 ## 🛠️ ソースファイル構成
 /Python/SheetMusicRecognitionPerformance/yolov5-master-2024/yolov5-master/
+
 ├── detect.py # 検出処理のメインスクリプト
+
 ├── train.py # 学習用スクリプト（必要に応じて）
+
 ├── make_dataset.py       # 学習用データセット生成スクリプト
+
 ├── models/ # モデル定義
+
 ├── data/ # データセットと構成ファイル
+
 ├── runs/ # 検出結果の保存先
+
 ├── weights/ # 事前学習済みまたは自作モデルの格納先
+
 ├── requirements.txt # 依存パッケージ
+
 └── README.md # YOLOv5のREADME.md
 
 ## ▶️ 実行方法
