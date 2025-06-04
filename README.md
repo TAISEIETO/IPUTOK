@@ -129,9 +129,14 @@ Pythonフォルダの説明1
 
 ## ▶️ 実行方法
 PyCharmでmake_dataset.pyを実行します（学習）。
+
 PyCharmでdetect.pyを実行します（検出）。
+
 ※詳細はREADME.mdより、YOLOv5公式リポジトリを参照。
+
 　検証用画像はdata/imagesに入れる必要があり、data/images_listの中から一枚を選択/作成するとよい。
+
+  パスエラーが出た際には適宜変更してください。
 
 
 Pythonフォルダの説明2
@@ -179,6 +184,11 @@ Pythonフォルダの説明2
 
 ## ▶️ 実行方法
 PyCharmでmake_dataset.pyを実行します（学習）。
+
 PyCharmでdetect.pyを実行します（検出）。
+
 ※詳細はREADME.mdより、YOLOv5公式リポジトリを参照。
+
 　検証用画像はdata/images_list/Kirakirabosi.jpgのように作成するとよい
+  
+  パスエラーが出た際には適宜変更してください。
